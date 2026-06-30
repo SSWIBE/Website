@@ -12,7 +12,6 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "What We Do", href: "#programs" },
   { label: "Our Team", href: "#team" },
-  { label: "Events", href: "#events" },
   { label: "Join Us", href: "#join" },
 ];
 
@@ -116,7 +115,7 @@ export const TESTIMONIALS = [
       "SSWIBE gave me a mentor and a community I didn't know I needed in this industry.",
     name: "Ayen D.",
     role: "Structural Engineer, Juba",
-    avatar: "/illustrations/avatar-1.svg",
+    avatar: "/illustrations/avatar.svg",
     handle: "@ayend_builds",
   },
   {
@@ -124,14 +123,14 @@ export const TESTIMONIALS = [
       "For the first time, I felt seen as a professional — not an exception.",
     name: "Amani K.",
     role: "Urban Planner, Wau",
-    avatar: "/illustrations/avatar-2.svg",
+    avatar: "/illustrations/avatar.svg",
     handle: "@amani_plans",
   },
   {
     quote: "The job board alone changed the trajectory of my career.",
     name: "Lucia M.",
     role: "Architect, Juba",
-    avatar: "/illustrations/avatar-3.svg",
+    avatar: "/illustrations/avatar.svg",
     handle: "@lucia_arch",
   },
 ];

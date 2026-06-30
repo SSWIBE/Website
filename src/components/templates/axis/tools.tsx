@@ -1,32 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-
-const ArchitecturalPattern = ({ inverted = false }: { inverted?: boolean }) => (
-  <svg
-    viewBox="0 0 480 400"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-full h-full max-w-md"
-    aria-hidden="true"
-  >
-    <rect x="40" y="60" width="120" height="320" stroke={inverted ? "#C9962C" : "#1B2A4A"} strokeWidth="2" strokeOpacity="0.8" fill="none" />
-    <rect x="180" y="20" width="140" height="360" stroke={inverted ? "#E8B84B" : "#243560"} strokeWidth="2" strokeOpacity="0.9" fill={inverted ? "rgba(201,150,44,0.05)" : "rgba(27,42,74,0.05)"} />
-    <rect x="340" y="100" width="100" height="280" stroke={inverted ? "#C9962C" : "#1B2A4A"} strokeWidth="1.5" strokeOpacity="0.7" fill="none" />
-    {[40, 80, 120, 160, 200, 240].map((y, i) => (
-      <g key={i}>
-        <rect x="195" y={y} width="18" height="26" stroke={inverted ? "#E8B84B" : "#C9962C"} strokeWidth="0.5" strokeOpacity="0.5" fill={inverted ? "rgba(232,184,75,0.12)" : "rgba(201,150,44,0.08)"} />
-        <rect x="222" y={y} width="18" height="26" stroke={inverted ? "#E8B84B" : "#C9962C"} strokeWidth="0.5" strokeOpacity="0.5" fill={inverted ? "rgba(232,184,75,0.12)" : "rgba(201,150,44,0.08)"} />
-        <rect x="249" y={y} width="18" height="26" stroke={inverted ? "#E8B84B" : "#C9962C"} strokeWidth="0.5" strokeOpacity="0.5" fill={inverted ? "rgba(232,184,75,0.12)" : "rgba(201,150,44,0.08)"} />
-        <rect x="276" y={y} width="18" height="26" stroke={inverted ? "#E8B84B" : "#C9962C"} strokeWidth="0.5" strokeOpacity="0.5" fill={inverted ? "rgba(232,184,75,0.12)" : "rgba(201,150,44,0.08)"} />
-      </g>
-    ))}
-    <line x1="0" y1="380" x2="480" y2="380" stroke={inverted ? "#C9962C" : "#1B2A4A"} strokeWidth="1" strokeOpacity="0.5" />
-    <line x1="40" y1="60" x2="180" y2="20" stroke="#C9962C" strokeWidth="0.5" strokeOpacity="0.4" strokeDasharray="4 4" />
-    <line x1="160" y1="60" x2="180" y2="20" stroke="#C9962C" strokeWidth="0.5" strokeOpacity="0.4" strokeDasharray="4 4" />
-  </svg>
-);
 
 export default function ToolFeature() {
   return (
@@ -66,7 +42,7 @@ export default function ToolFeature() {
               <div>
                 <Link
                   href="#team"
-                  className="inline-flex items-center justify-center rounded-full px-6 h-10 text-sm font-medium border transition-colors hover:bg-white/10"
+                  className="inline-flex items-center justify-center rounded-full px-6 h-11 text-base font-medium border transition-colors hover:bg-white/10"
                   style={{ borderColor: "rgba(201,150,44,0.5)", color: "#C9962C" }}
                 >
                   Meet the Founders →
@@ -74,8 +50,13 @@ export default function ToolFeature() {
               </div>
             </div>
 
-            <div className="flex-shrink-0 w-full max-w-sm lg:max-w-md" style={{ clipPath: "polygon(0 0, 100% 0, 100% 92%, 0 100%)" }}>
-              <ArchitecturalPattern inverted />
+            <div className="relative flex-shrink-0 w-full max-w-sm lg:max-w-md aspect-[4/3] overflow-hidden rounded-2xl" style={{ clipPath: "polygon(0 10%, 100% 0, 100% 100%, 0 90%)" }}>
+              <Image
+                src="/illustrations/digital-asset-4.jpg"
+                alt="SSWIBE architectural space"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
@@ -107,7 +88,7 @@ export default function ToolFeature() {
               <div>
                 <Link
                   href="#join"
-                  className="shimmer-btn inline-flex items-center justify-center rounded-full px-7 h-11 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                  className="shimmer-btn inline-flex items-center justify-center rounded-full px-7 h-11 text-base font-medium text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: "#C9962C" }}
                 >
                   Join the Network →
@@ -115,8 +96,13 @@ export default function ToolFeature() {
               </div>
             </div>
 
-            <div className="flex-shrink-0 w-full max-w-sm lg:max-w-md" style={{ clipPath: "polygon(0 10%, 100% 0, 100% 100%, 0 90%)" }}>
-              <ArchitecturalPattern />
+            <div className="relative flex-shrink-0 w-full max-w-sm lg:max-w-md aspect-[4/3] overflow-hidden rounded-2xl" style={{ clipPath: "polygon(0 10%, 100% 0, 100% 100%, 0 90%)" }}>
+              <Image
+                src="/illustrations/digital-asset-3.jpg"
+                alt="SSWIBE architectural space"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

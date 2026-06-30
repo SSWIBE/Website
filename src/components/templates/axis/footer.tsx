@@ -16,6 +16,7 @@ const Footer = () => {
 
   return (
     <motion.footer
+      id="contact"
       className="w-full border-t"
       style={{
         backgroundColor: "#080E1C",
@@ -29,22 +30,22 @@ const Footer = () => {
       <div className="mx-auto max-w-6xl px-4 py-14 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 mb-12">
           {/* Left — Branding */}
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-col leading-none">
-              <span
-                className="text-white font-bold text-2xl tracking-wider"
-                style={{ fontFamily: "var(--font-display-custom), Georgia, serif" }}
-              >
-                {SITE.name}
-              </span>
-              <span
-                className="text-sm italic mt-1"
-                style={{ color: "rgba(201,150,44,0.75)" }}
-              >
-                {SITE.tagline}
-              </span>
+          <div className="flex flex-col items-start gap-3">
+            <div className="relative -ml-4 h-24 w-64 overflow-hidden">
+              <Image
+                src="/logo/sswibe-logo-white.svg"
+                alt={SITE.fullName}
+                fill
+                className="object-contain object-left"
+              />
             </div>
-            <p className="text-xs mt-2 leading-relaxed" style={{ color: "rgba(255,255,255,0.35)" }}>
+            <span
+              className="text-base italic"
+              style={{ color: "rgba(201,150,44,0.75)" }}
+            >
+              {SITE.tagline}
+            </span>
+            <p className="text-sm mt-2 leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
               © {SITE.foundedYear} {SITE.fullName} ({SITE.name}).
               <br />All rights reserved.
             </p>
@@ -53,7 +54,7 @@ const Footer = () => {
           {/* Center — Navigation */}
           <div className="flex flex-col gap-4">
             <p
-              className="text-[10px] tracking-[0.2em] uppercase"
+              className="text-xs tracking-[0.2em] uppercase"
               style={{
                 color: "#C9962C",
                 fontFamily: "var(--font-mono-custom-var), monospace",
@@ -61,19 +62,19 @@ const Footer = () => {
             >
               Navigate
             </p>
-            <nav className="flex flex-col gap-2" aria-label="Footer navigation">
+            <nav className="flex flex-col gap-3" aria-label="Footer navigation">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-sm transition-colors"
-                  style={{ color: "rgba(255,255,255,0.55)" }}
+                  className="text-base transition-colors"
+                  style={{ color: "rgba(255,255,255,0.6)" }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLAnchorElement).style.color = "#C9962C";
                   }}
                   onMouseLeave={(e) => {
                     (e.currentTarget as HTMLAnchorElement).style.color =
-                      "rgba(255,255,255,0.55)";
+                      "rgba(255,255,255,0.6)";
                   }}
                 >
                   {link.label}
@@ -85,7 +86,7 @@ const Footer = () => {
           {/* Right — Socials + Contact */}
           <div className="flex flex-col gap-4">
             <p
-              className="text-[10px] tracking-[0.2em] uppercase"
+              className="text-xs tracking-[0.2em] uppercase"
               style={{
                 color: "#C9962C",
                 fontFamily: "var(--font-mono-custom-var), monospace",
@@ -104,9 +105,9 @@ const Footer = () => {
                   <Image
                     src={social.icon}
                     alt={social.label}
-                    width={20}
-                    height={20}
-                    className="w-5 h-5 transition-all duration-200 group-hover:opacity-100"
+                    width={22}
+                    height={22}
+                    className="w-[22px] h-[22px] transition-all duration-200 group-hover:opacity-100"
                     style={{
                       filter:
                         "brightness(0) invert(1)",
@@ -118,14 +119,14 @@ const Footer = () => {
             </div>
             <a
               href={`mailto:${SITE.email}`}
-              className="text-sm transition-colors mt-1"
-              style={{ color: "rgba(255,255,255,0.55)" }}
+              className="text-base transition-colors mt-1"
+              style={{ color: "rgba(255,255,255,0.6)" }}
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.color = "#C9962C";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLAnchorElement).style.color =
-                  "rgba(255,255,255,0.55)";
+                  "rgba(255,255,255,0.6)";
               }}
             >
               {SITE.email}
@@ -139,8 +140,8 @@ const Footer = () => {
           style={{ borderTopColor: "rgba(255,255,255,0.06)" }}
         >
           <p
-            className="text-xs"
-            style={{ color: "rgba(255,255,255,0.25)" }}
+            className="text-sm"
+            style={{ color: "rgba(255,255,255,0.3)" }}
           >
             Built with purpose. Designed for equity.
           </p>

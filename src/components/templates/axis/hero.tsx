@@ -1,50 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { SITE } from "@/lib/constants";
-
-const GeometricIllustration = () => (
-  <svg
-    viewBox="0 0 480 520"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-full h-auto max-w-sm lg:max-w-md"
-    aria-hidden="true"
-  >
-    <rect x="60" y="220" width="80" height="280" stroke="#C9962C" strokeWidth="1.5" strokeOpacity="0.7" fill="none" />
-    <rect x="68" y="228" width="64" height="272" stroke="#C9962C" strokeWidth="0.5" strokeOpacity="0.3" fill="none" />
-    <rect x="160" y="80" width="100" height="420" stroke="#E8B84B" strokeWidth="2" strokeOpacity="0.9" fill="rgba(201,150,44,0.04)" />
-    <rect x="170" y="90" width="80" height="410" stroke="#E8B84B" strokeWidth="0.5" strokeOpacity="0.3" fill="none" />
-    <rect x="280" y="160" width="90" height="340" stroke="#C9962C" strokeWidth="1.5" strokeOpacity="0.7" fill="none" />
-    <rect x="390" y="280" width="60" height="220" stroke="#C9962C" strokeWidth="1" strokeOpacity="0.5" fill="none" />
-    {[100, 140, 180, 220, 260, 300, 340, 380].map((y, i) => (
-      <g key={i}>
-        <rect x="175" y={y} width="14" height="20" stroke="#E8B84B" strokeWidth="0.5" strokeOpacity="0.4" fill="rgba(201,150,44,0.1)" />
-        <rect x="196" y={y} width="14" height="20" stroke="#E8B84B" strokeWidth="0.5" strokeOpacity="0.4" fill="rgba(201,150,44,0.1)" />
-        <rect x="217" y={y} width="14" height="20" stroke="#E8B84B" strokeWidth="0.5" strokeOpacity="0.4" fill="rgba(201,150,44,0.1)" />
-        <rect x="238" y={y} width="14" height="20" stroke="#E8B84B" strokeWidth="0.5" strokeOpacity="0.4" fill="rgba(201,150,44,0.1)" />
-      </g>
-    ))}
-    {[180, 220, 260, 300, 340, 380].map((y, i) => (
-      <g key={i}>
-        <rect x="288" y={y} width="16" height="22" stroke="#C9962C" strokeWidth="0.5" strokeOpacity="0.4" fill="rgba(201,150,44,0.08)" />
-        <rect x="312" y={y} width="16" height="22" stroke="#C9962C" strokeWidth="0.5" strokeOpacity="0.4" fill="rgba(201,150,44,0.08)" />
-        <rect x="336" y={y} width="16" height="22" stroke="#C9962C" strokeWidth="0.5" strokeOpacity="0.4" fill="rgba(201,150,44,0.08)" />
-      </g>
-    ))}
-    <line x1="60" y1="500" x2="450" y2="500" stroke="#C9962C" strokeWidth="1" strokeOpacity="0.5" />
-    <line x1="210" y1="80" x2="210" y2="20" stroke="#E8B84B" strokeWidth="1" strokeOpacity="0.6" />
-    <line x1="210" y1="20" x2="260" y2="20" stroke="#E8B84B" strokeWidth="1" strokeOpacity="0.6" />
-    <line x1="260" y1="20" x2="260" y2="80" stroke="#E8B84B" strokeWidth="1" strokeOpacity="0.6" />
-    <polygon points="235,5 225,20 245,20" stroke="#C9962C" strokeWidth="1" strokeOpacity="0.8" fill="rgba(201,150,44,0.2)" />
-    <circle cx="130" cy="195" r="10" stroke="#C9962C" strokeWidth="1.5" strokeOpacity="0.7" fill="rgba(201,150,44,0.15)" />
-    <path d="M120 195 Q130 188 140 195" stroke="#C9962C" strokeWidth="2" strokeOpacity="0.8" fill="rgba(201,150,44,0.3)" />
-    <circle cx="155" cy="190" r="10" stroke="#E8B84B" strokeWidth="1.5" strokeOpacity="0.7" fill="rgba(232,184,75,0.15)" />
-    <path d="M145 190 Q155 183 165 190" stroke="#E8B84B" strokeWidth="2" strokeOpacity="0.8" fill="rgba(232,184,75,0.3)" />
-  </svg>
-);
 
 const GridPattern = () => (
   <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -69,16 +29,16 @@ const Hero = () => {
   return (
     <section
       id="about"
-      className="relative flex flex-col justify-center overflow-hidden min-h-svh"
+      className="relative flex flex-col justify-center overflow-hidden"
       style={{ backgroundColor: "#0F1F3D" }}
     >
       <GridPattern />
 
-      <div className="relative z-10 mx-auto max-w-6xl px-4 w-full pt-28 pb-20 lg:pt-32 lg:pb-24">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 w-full pt-32 pb-12 lg:pt-40 lg:pb-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8">
           {/* Left — Copy */}
           <motion.div
-            className="flex flex-col gap-6 max-w-xl lg:max-w-lg xl:max-w-xl text-center lg:text-left"
+            className="flex flex-col gap-6 max-w-xl lg:max-w-sm xl:max-w-md text-center lg:text-left lg:flex-shrink-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -166,16 +126,25 @@ const Hero = () => {
 
           {/* Right — Illustration */}
           <motion.div
-            className="flex-shrink-0 w-full max-w-xs lg:max-w-sm xl:max-w-md"
+            className="w-full max-w-md lg:max-w-none lg:flex-1"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
           >
             <motion.div
+              className="scale-125 lg:scale-150 origin-center"
               animate={{ y: [0, -14, 0] }}
               transition={{ duration: 4, ease: "easeInOut", repeat: Infinity }}
             >
-              <GeometricIllustration />
+              <Image
+                src="/illustrations/digital-asset-1.svg"
+                alt=""
+                width={1536}
+                height={658}
+                className="w-full h-auto"
+                aria-hidden="true"
+                priority
+              />
             </motion.div>
           </motion.div>
         </div>

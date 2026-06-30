@@ -9,21 +9,13 @@ const Pricing = () => {
     <section
       id="join"
       className="relative overflow-hidden py-24 lg:py-32"
+      style={{ backgroundColor: "#F2EFE9" }}
     >
-      {/* Gradient background */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(160deg, #0F1F3D 0%, #1B2A4A 50%, rgba(201,150,44,0.15) 100%)",
-        }}
-      />
-
       {/* Grid pattern */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" aria-hidden="true">
         <defs>
           <pattern id="grid-join" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C9962C" strokeWidth="0.3" strokeOpacity="0.05" />
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#C9962C" strokeWidth="0.3" strokeOpacity="0.08" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#grid-join)" />
@@ -37,47 +29,46 @@ const Pricing = () => {
         transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <p
-          className="text-xs tracking-[0.18em] uppercase mb-4"
+          className="text-sm tracking-[0.18em] uppercase mb-4"
           style={{ color: "#C9962C", fontFamily: "var(--font-mono-custom-var), monospace" }}
         >
           Join the Movement
         </p>
 
         <h2
-          className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white tracking-tight mb-5"
-          style={{ fontFamily: "var(--font-display-custom), Georgia, serif" }}
+          className="text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight mb-5"
+          style={{ color: "#0F1F3D", fontFamily: "var(--font-display-custom), Georgia, serif" }}
         >
           Shape the Future of South Sudan Together
         </h2>
 
         <p
           className="text-base lg:text-lg mb-10 leading-relaxed"
-          style={{ color: "rgba(203,213,225,0.8)" }}
+          style={{ color: "#6B7280" }}
         >
           The future of architecture is inclusive. SSWIBE is redefining what is
           possible for women in South Sudan — proving that when we include each
           other, the entire industry elevates.
         </p>
 
-        {/* Glassmorphism card */}
+        {/* Membership card */}
         <div
-          className="rounded-3xl p-8 lg:p-10 text-left"
+          className="rounded-3xl p-8 lg:p-10 text-left bg-white"
           style={{
-            backgroundColor: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(201,150,44,0.25)",
-            backdropFilter: "blur(16px)",
+            border: "1px solid #E5DDD0",
+            boxShadow: "0 20px 50px -20px rgba(15,31,61,0.15)",
           }}
         >
           {/* Card header */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <div>
               <h3
-                className="text-xl font-bold text-white"
-                style={{ fontFamily: "var(--font-display-custom), Georgia, serif" }}
+                className="text-xl font-bold"
+                style={{ color: "#0F1F3D", fontFamily: "var(--font-display-custom), Georgia, serif" }}
               >
                 SSWIBE Membership
               </h3>
-              <p className="text-sm mt-1" style={{ color: "rgba(203,213,225,0.65)" }}>
+              <p className="text-base mt-1" style={{ color: "#6B7280" }}>
                 For female architects, planners, engineers, and students
               </p>
             </div>
@@ -107,7 +98,7 @@ const Pricing = () => {
                 transition={{ delay: i * 0.06 }}
               >
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: "#C9962C" }} strokeWidth={2.5} />
-                <span className="text-sm text-white/80">{benefit}</span>
+                <span className="text-base" style={{ color: "#0F1F3D" }}>{benefit}</span>
               </motion.div>
             ))}
           </div>
@@ -121,14 +112,12 @@ const Pricing = () => {
             Apply to Join →
           </a>
 
-          <p className="text-center text-sm mt-4" style={{ color: "rgba(255,255,255,0.45)" }}>
+          <p className="text-center text-base mt-4" style={{ color: "#6B7280" }}>
             Questions?{" "}
             <a
               href={`mailto:${SITE.email}`}
-              className="transition-colors"
-              style={{ color: "rgba(201,150,44,0.7)" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#C9962C"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(201,150,44,0.7)"; }}
+              className="transition-colors font-medium"
+              style={{ color: "#C9962C" }}
             >
               {SITE.email}
             </a>

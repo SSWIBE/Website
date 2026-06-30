@@ -9,6 +9,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NAV_LINKS, SITE } from "@/lib/constants";
@@ -50,14 +51,13 @@ const Navbar = () => {
         transition={{ duration: 0.2 }}
       >
         <motion.div
-          className="flex flex-row items-center justify-between gap-4 rounded-full border border-white/10 px-4 py-2"
+          className="flex flex-row items-center justify-between gap-4 rounded-full border-2 px-4 py-1.5"
           animate={{
-            backgroundColor: isScrolled
-              ? "rgba(15, 31, 61, 0.92)"
-              : "rgba(15, 31, 61, 1)",
+            backgroundColor: "rgba(255, 255, 255, 1)",
+            borderColor: "#C9962C",
             backdropFilter: "blur(12px)",
             boxShadow: isScrolled
-              ? "0 4px 24px -6px rgba(0,0,0,0.4)"
+              ? "0 4px 24px -6px rgba(0,0,0,0.15)"
               : "0 0 0 0 rgba(0,0,0,0)",
           }}
           transition={{ duration: 0.3 }}
@@ -65,25 +65,17 @@ const Navbar = () => {
           {/* Logo */}
           <Link
             href="/"
-            className="flex flex-col leading-none ml-2"
+            className="flex flex-row items-center gap-2 ml-2"
             aria-label={SITE.fullName}
           >
-            <span
-              className="text-white font-bold text-lg tracking-wider"
-              style={{ fontFamily: "var(--font-display-custom), Georgia, serif" }}
-            >
-              {SITE.name}
-            </span>
-            <span
-              className="text-[9px] tracking-[0.2em] uppercase"
-              style={{
-                color: "#C9962C",
-                fontFamily:
-                  "var(--font-mono-custom-var), SF Mono, monospace",
-              }}
-            >
-              S.Sudan
-            </span>
+            <Image
+              src="/logo/sswibe-logo.svg"
+              alt={SITE.fullName}
+              width={140}
+              height={70}
+              className="h-[72px] w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -92,7 +84,8 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-white/80 hover:text-white transition-colors relative group"
+                className="text-base font-medium transition-colors relative group"
+                style={{ color: "#0F1F3D" }}
               >
                 {link.label}
                 <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-[#C9962C] group-hover:w-full transition-all duration-300" />
@@ -102,15 +95,16 @@ const Navbar = () => {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex flex-row items-center gap-3">
-            <a
-              href={`mailto:${SITE.email}`}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors px-3 py-1.5 rounded-full hover:bg-white/10"
+            <Link
+              href="#contact"
+              className="text-base font-medium transition-colors px-3 py-1.5 rounded-full hover:bg-black/5"
+              style={{ color: "#0F1F3D" }}
             >
               Contact
-            </a>
+            </Link>
             <Link
               href="#join"
-              className="shimmer-btn inline-flex items-center justify-center rounded-full px-5 h-9 text-sm font-medium text-white transition-opacity hover:opacity-90"
+              className="shimmer-btn inline-flex items-center justify-center rounded-full px-5 h-10 text-base font-medium text-white transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#C9962C" }}
             >
               Join SSWIBE
@@ -129,7 +123,8 @@ const Navbar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full text-white hover:bg-white/10"
+              className="rounded-full hover:bg-black/5"
+              style={{ color: "#0F1F3D" }}
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -183,7 +178,7 @@ const Navbar = () => {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center justify-between rounded-lg px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+                      className="flex items-center justify-between rounded-lg px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/10 transition-colors"
                       onClick={() => setIsOpen(false)}
                     >
                       {link.label}

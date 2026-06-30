@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { useState } from "react";
 import { FOUNDERS, TEAM } from "@/lib/constants";
 
 const AvatarFallback = ({ initials }: { initials: string }) => (
@@ -30,7 +31,9 @@ const FounderCard = ({
   image: string;
   initials: string;
   index: number;
-}) => (
+}) => {
+  const [imageFailed, setImageFailed] = useState(false);
+  return (
   <motion.div
     className="flex flex-col rounded-2xl overflow-hidden border group"
     style={{ borderColor: "#E5DDD0" }}
@@ -45,18 +48,18 @@ const FounderCard = ({
       className="relative w-full aspect-[4/3] overflow-hidden"
       style={{ clipPath: "polygon(0 0, 100% 0, 100% 93%, 0 100%)" }}
     >
-      <Image
-        src={image}
-        alt={name}
-        fill
-        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-        sizes="(max-width: 768px) 100vw, 33vw"
-        onError={() => {}} // suppress next/image error for missing photos
-      />
-      {/* Fallback shown when image fails to load — use CSS approach */}
-      <div className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+      {imageFailed ? (
         <AvatarFallback initials={initials} />
-      </div>
+      ) : (
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+          sizes="(max-width: 768px) 100vw, 33vw"
+          onError={() => setImageFailed(true)}
+        />
+      )}
       {/* Warm hover overlay */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{ background: "rgba(201,150,44,0.1)", mixBlendMode: "multiply" }}
@@ -91,7 +94,8 @@ const FounderCard = ({
       </p>
     </div>
   </motion.div>
-);
+  );
+};
 
 const TeamCard = ({
   name,
@@ -107,7 +111,9 @@ const TeamCard = ({
   image: string;
   initials: string;
   index: number;
-}) => (
+}) => {
+  const [imageFailed, setImageFailed] = useState(false);
+  return (
   <motion.div
     className="flex flex-col items-center text-center gap-4 p-6 rounded-2xl border bg-white"
     style={{ borderColor: "#E5DDD0" }}
@@ -119,16 +125,18 @@ const TeamCard = ({
   >
     {/* Avatar */}
     <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0 border-2" style={{ borderColor: "rgba(201,150,44,0.3)" }}>
-      <Image
-        src={image}
-        alt={name}
-        fill
-        className="object-cover"
-        sizes="96px"
-      />
-      <div className="absolute inset-0">
+      {imageFailed ? (
         <AvatarFallback initials={initials} />
-      </div>
+      ) : (
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-cover object-top"
+          sizes="96px"
+          onError={() => setImageFailed(true)}
+        />
+      )}
     </div>
 
     <div className="flex flex-col gap-1">
@@ -155,7 +163,8 @@ const TeamCard = ({
       </p>
     </div>
   </motion.div>
-);
+  );
+};
 
 const Leadership = () => {
   return (
